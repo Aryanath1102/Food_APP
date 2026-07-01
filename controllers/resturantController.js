@@ -100,14 +100,16 @@ const GetResturantController = async (req, res) => {
 
 const DeleteResturantController = async (req, res) => {
   try {
-    const resturantId = req.params.id;
+    const resturantId = await req.params.id;
+    console.log("Controller Hit");
+    console.log("ID:", req.params.id);
     if (!resturantId) {
       res.status(404).send({
         success: false,
         message: "No Resturant Found OR no Id provided.",
       });
 
-      await resturantModel.findByIdAndDelete(restutantId);
+      await resturantModel.findByIdAndDelete(resturantId);
       res.status(200).send({
         success: true,
         message: "Successfully Deleted ",

@@ -122,4 +122,5 @@ module.exports = {
   createResturantController,
   GetAllResturantController,
   GetResturantController,
+  DeleteResturantController,
 };

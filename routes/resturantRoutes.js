@@ -20,4 +20,7 @@ router.get("/getAll", authMiddleware, GetAllResturantController);
 
 router.get("/get/:id", authMiddleware, GetResturantController);
 
+// Delete A Resturant || DELETE
+router.get("/deleteResturant/:id", authMiddleware);
+
 module.exports = router;

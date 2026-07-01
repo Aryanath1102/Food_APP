@@ -98,6 +98,26 @@ const GetResturantController = async (req, res) => {
   }
 };
 
+const DeleteResturantController = async (req, res) => {
+  try {
+    const resturantId = req.params.id;
+    if (!resturantId) {
+      res.status(404).send({
+        success: false,
+        message: "No Resturant Found OR no Id provided.",
+      });
+
+      await resturantModel.findByIdAndDelete(restutantId);
+      res.status(200).send({
+        success: true,
+        message: "Successfully Deleted ",
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 module.exports = {
   createResturantController,
   GetAllResturantController,

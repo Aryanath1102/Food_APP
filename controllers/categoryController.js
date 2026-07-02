@@ -50,7 +50,7 @@ const getCategoryController = async (req, res) => {
 
 const updateCategoryController = async (req, res) => {
   try {
-    const id = req.params.id;
+    const { id } = req.params;
     const { title, imageUrl } = req.body;
     const updatedCategory = await categoryModel.findByIdAndUpdate(
       id,

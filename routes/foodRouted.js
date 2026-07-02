@@ -6,6 +6,7 @@ const {
   updateFoodController,
   getSingleFoodByIDController,
   getSingleFoodByResturantController,
+  deleteFoodController,
 } = require("../controllers/FoodController");
 
 const router = express.Router();
@@ -30,5 +31,6 @@ router.get(
 router.put("/updateFood/:id", authMiddleware, updateFoodController);
 
 // Delete category || DELETE
+router.delete("/delete/:id", authMiddleware, deleteFoodController);
 
 module.exports = router;

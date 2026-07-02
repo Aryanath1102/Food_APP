@@ -8,12 +8,18 @@ const {
   getSingleFoodByResturantController,
   deleteFoodController,
 } = require("../controllers/FoodController");
+const adminMiddleware = require("../middleware/adminMiddleware");
 
 const router = express.Router();
 
 // routes
 // Create Food || POST
-router.post("/createFood", authMiddleware, createFoodController);
+router.post(
+  "/createFood",
+  authMiddleware,
+  adminMiddleware,
+  createFoodController,
+);
 
 // GET Food || GET
 router.get("/getFood", authMiddleware, getAllFoodController);
@@ -28,9 +34,19 @@ router.get(
   getSingleFoodByResturantController,
 );
 // Update Category || PUT
-router.put("/updateFood/:id", authMiddleware, updateFoodController);
+router.put(
+  "/updateFood/:id",
+  authMiddleware,
+  adminMiddleware,
+  updateFoodController,
+);
 
 // Delete category || DELETE
-router.delete("/delete/:id", authMiddleware, deleteFoodController);
+router.delete(
+  "/delete/:id",
+  authMiddleware,
+  adminMiddleware,
+  deleteFoodController,
+);
 
 module.exports = router;
